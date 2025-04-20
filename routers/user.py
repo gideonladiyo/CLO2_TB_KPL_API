@@ -1,34 +1,47 @@
 from fastapi import APIRouter
 from typing import List
-from pydantic import BaseModel
-from lib.user_lib import *
-import os
+# from pydantic import BaseModel
+from lib.user_lib import UserList
+from models.models import User, PublicUser, UserCreate
+from lib.file_path import Path
 
 router = APIRouter(prefix="/user", tags=["User"])
 
-class User(BaseModel):
-    uid: str
-    username: str
-    password: str
-    primogems: int
-    pity: int
-    four_star_pity: int
-    rate_on: bool
-    four_star_rate_on: bool
-    rarity_weight: dict
 
-class UserCreate(BaseModel):
-    username: str
-    password: str
+# class User(BaseModel):
+#     uid: str
+#     username: str
+#     password: str
+#     primogems: int
+#     pity: int
+#     four_star_pity: int
+#     is_rate_on: bool
+#     four_star_rate_on: bool
+#     rarity_weight: dict
 
-config_path = os.path.join(os.path.dirname(__file__), "..", "users.json")
-config_path = os.path.normpath(config_path)
-user_list = UserList(config_path=config_path)
+
+# class PublicUser(BaseModel):
+#     uid: str
+#     username: str
+#     primogems: int
+#     pity: int
+#     four_star_pity: int
+#     is_rate_on: bool
+#     four_star_rate_on: bool
+
+
+# class UserCreate(BaseModel):
+#     username: str
+#     password: str
+
+
+path = Path()
+user_list = UserList(user_path=path.user_path, history_path=path.history_path)
 
 
 @router.get(
     "/",
-    response_model=List[User],
+    response_model=List[PublicUser],
     summary="Daftar user yang terdaftar",
     responses={
         200: {
@@ -39,24 +52,20 @@ user_list = UserList(config_path=config_path)
                         {
                             "uid": "800000001",
                             "username": "Gideon",
-                            "password": "password123",
                             "primogems": 1000000,
                             "pity": 0,
                             "four_star_pity": 0,
-                            "rate_on": False,
+                            "is_rate_on": False,
                             "four_star_rate_on": False,
-                            "rarity_weight": {"3-star": 94, "4-star": 5, "5-star": 1},
                         },
                         {
                             "uid": "800000002",
                             "username": "Toska",
-                            "password": "password123",
                             "primogems": 1000000,
                             "pity": 0,
                             "four_star_pity": 0,
-                            "rate_on": False,
+                            "is_rate_on": False,
                             "four_star_rate_on": False,
-                            "rarity_weight": {"3-star": 94, "4-star": 5, "5-star": 1},
                         },
                     ]
                 }
@@ -70,7 +79,7 @@ def get_all_user():
 
 @router.get(
     "/{uid}",
-    response_model=User,
+    response_model=PublicUser,
     summary="Detail user berdasarkan UID",
     responses={
         200: {
@@ -78,23 +87,13 @@ def get_all_user():
             "content": {
                 "application/json": {
                     "example": {
-                        {
-                            {
-                                "uid": "800000001",
-                                "username": "Gideon",
-                                "password": "password123",
-                                "primogems": 1000000,
-                                "pity": 0,
-                                "four_star_pity": 0,
-                                "rate_on": False,
-                                "four_star_rate_on": False,
-                                "rarity_weight": {
-                                    "3-star": 94,
-                                    "4-star": 5,
-                                    "5-star": 1,
-                                },
-                            },
-                        }
+                        "uid": "800000001",
+                        "username": "Gideon",
+                        "primogems": 1000000,
+                        "pity": 0,
+                        "four_star_pity": 0,
+                        "is_rate_on": False,
+                        "four_star_rate_on": False,
                     }
                 }
             },
@@ -107,24 +106,20 @@ def get_user(uid: str):
 
 @router.post(
     "/",
-    response_model=User,
+    response_model=PublicUser,
     summary="Membuat user baru",
     status_code=201,
     responses={
         201: {
             "description": "User berhasil dibuat",
             "content": {
-                {
-                    "uid": "800000003",
-                    "username": "Jonathan",
-                    "password": "password123",
-                    "primogems": 1000000,
-                    "pity": 0,
-                    "four_star_pity": 0,
-                    "rate_on": False,
-                    "four_star_rate_on": False,
-                    "rarity_weight": {"3-star": 94, "4-star": 5, "5-star": 1},
-                },
+                "uid": "800000003",
+                "username": "Jonathan",
+                "primogems": 1000000,
+                "pity": 0,
+                "four_star_pity": 0,
+                "is_rate_on": False,
+                "four_star_rate_on": False,
             },
         }
     },
@@ -135,7 +130,7 @@ def create_user(user: UserCreate):
 
 @router.put(
     "/{uid}",
-    response_model=User,
+    response_model=PublicUser,
     summary="Perbaharui data user",
     responses={
         200: {
@@ -143,17 +138,13 @@ def create_user(user: UserCreate):
             "content": {
                 "application/json": {
                     "example": {
-                        {
-                            "uid": "800000001",
-                            "username": "Gideon",
-                            "password": "password123",
-                            "primogems": 1000000,
-                            "pity": 0,
-                            "four_star_pity": 0,
-                            "rate_on": False,
-                            "four_star_rate_on": False,
-                            "rarity_weight": {"3-star": 94, "4-star": 5, "5-star": 1},
-                        }
+                        "uid": "800000001",
+                        "username": "Gideon",
+                        "primogems": 1000000,
+                        "pity": 0,
+                        "four_star_pity": 0,
+                        "is_rate_on": False,
+                        "four_star_rate_on": False,
                     }
                 }
             },
@@ -163,10 +154,11 @@ def create_user(user: UserCreate):
 def update_user(uid: str, user: UserCreate):
     return user_list.update_user(uid, user)
 
+
 @router.delete(
     "/{uid}",
     summary="Hapus user berdasarkan UID",
-    response={
+    responses={
         200: {
             "description": "User berhasil dihapus",
             "content": {
