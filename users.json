@@ -1,0 +1,32 @@
+[
+    {
+        "uid": "800000001",
+        "username": "Gideon",
+        "password": "password123",
+        "primogems": 1000000,
+        "pity": 0,
+        "four_star_pity": 0,
+        "rate_on": false,
+        "four_star_rate_on": false,
+        "rarity_weight": {
+            "3-star": 94,
+            "4-star": 5,
+            "5-star": 1
+        }
+    },
+    {
+        "uid": "800000002",
+        "username": "Toska",
+        "password": "password123",
+        "primogems": 1000000,
+        "pity": 0,
+        "four_star_pity": 0,
+        "rate_on": false,
+        "four_star_rate_on": false,
+        "rarity_weight": {
+            "3-star": 94,
+            "4-star": 5,
+            "5-star": 1
+        }
+    }
+]

@@ -1,0 +1,322 @@
+[
+    {
+        "id": 1,
+        "name": "Diluc",
+        "item_type": "character",
+        "type": "Pyro",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 2,
+        "name": "Ganyu",
+        "item_type": "character",
+        "type": "Cryo",
+        "rarity": "5-star",
+        "is_rate_up": true
+    },
+    {
+        "id": 3,
+        "name": "Bennett",
+        "item_type": "character",
+        "type": "Pyro",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 4,
+        "name": "Raiden Shogun",
+        "item_type": "character",
+        "type": "Electro",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 5,
+        "name": "Sucrose",
+        "item_type": "character",
+        "type": "Anemo",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 6,
+        "name": "Kaeya",
+        "item_type": "character",
+        "type": "Cryo",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 7,
+        "name": "Klee",
+        "item_type": "character",
+        "type": "Pyro",
+        "rarity": "5-star",
+        "is_rate_up": true
+    },
+    {
+        "id": 8,
+        "name": "Barbara",
+        "item_type": "character",
+        "type": "Hydro",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 9,
+        "name": "Ayaka",
+        "item_type": "character",
+        "type": "Cryo",
+        "rarity": "5-star",
+        "is_rate_up": true
+    },
+    {
+        "id": 10,
+        "name": "Xiangling",
+        "item_type": "character",
+        "type": "Pyro",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 11,
+        "name": "Xingqiu",
+        "item_type": "character",
+        "type": "Hydro",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 12,
+        "name": "Albedo",
+        "item_type": "character",
+        "type": "Geo",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 13,
+        "name": "Tartaglia",
+        "item_type": "character",
+        "type": "Hydro",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 14,
+        "name": "Rosaria",
+        "item_type": "character",
+        "type": "Cryo",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 15,
+        "name": "Yanfei",
+        "item_type": "character",
+        "type": "Pyro",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 16,
+        "name": "Mona",
+        "item_type": "character",
+        "type": "Hydro",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 17,
+        "name": "Eula",
+        "item_type": "character",
+        "type": "Cryo",
+        "rarity": "5-star",
+        "is_rate_up": true
+    },
+    {
+        "id": 18,
+        "name": "Amber",
+        "item_type": "character",
+        "type": "Pyro",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 19,
+        "name": "Lisa",
+        "item_type": "character",
+        "type": "Electro",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 20,
+        "name": "Noelle",
+        "item_type": "character",
+        "type": "Geo",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 21,
+        "name": "Skyward Blade",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 22,
+        "name": "Wolf's Gravestone",
+        "item_type": "weapon",
+        "type": "Claymore",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 23,
+        "name": "The Stringless",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 24,
+        "name": "Favonius Lance",
+        "item_type": "weapon",
+        "type": "Polearm",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 25,
+        "name": "Sacrificial Sword",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "4-star",
+        "is_rate_up": true
+    },
+    {
+        "id": 26,
+        "name": "Primordial Jade Winged-Spear",
+        "item_type": "weapon",
+        "type": "Polearm",
+        "rarity": "5-star",
+        "is_rate_up": true
+    },
+    {
+        "id": 27,
+        "name": "Lost Prayer to the Sacred Winds",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 28,
+        "name": "Mappa Mare",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 29,
+        "name": "Blackcliff Warbow",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 30,
+        "name": "Skyward Pride",
+        "item_type": "weapon",
+        "type": "Claymore",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 31,
+        "name": "Rust",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 32,
+        "name": "Prototype Archaic",
+        "item_type": "weapon",
+        "type": "Claymore",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 33,
+        "name": "The Widsith",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 34,
+        "name": "Lion's Roar",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 35,
+        "name": "Aquila Favonia",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 36,
+        "name": "Vortex Vanquisher",
+        "item_type": "weapon",
+        "type": "Polearm",
+        "rarity": "5-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 37,
+        "name": "Favonius Warbow",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 38,
+        "name": "Dodoco Tales",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 39,
+        "name": "Whiteblind",
+        "item_type": "weapon",
+        "type": "Claymore",
+        "rarity": "4-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 40,
+        "name": "Solar Pearl",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "4-star",
+        "is_rate_up": false
+    }
+]

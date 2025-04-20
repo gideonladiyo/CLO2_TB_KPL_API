@@ -1,0 +1,9 @@
+{
+    "rarity_choices": [
+        "3-star",
+        "4-star",
+        "5-star"
+    ],
+    "rate_up_choices": [true, false],
+    "rate_up_weight": [50, 50]
+}
