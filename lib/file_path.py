@@ -12,3 +12,6 @@ class Path:
         self.history_path = os.path.normpath(
             os.path.join(os.path.dirname(__file__), "..", "user_history")
         )
+        self.banner_config_path = os.path.normpath(
+            os.path.join(os.path.dirname(__file__), "..", "banner_config.json")
+        )

@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import gacha, user
+from routers import gacha, user, banner
 
 app = FastAPI(
     title="Studi Kasus FastAPI - Dua Group Service",
@@ -20,3 +20,4 @@ app = FastAPI(
 # Daftarkan router
 app.include_router(user.router)
 app.include_router(gacha.router)
+app.include_router(banner.router)

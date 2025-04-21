@@ -1,19 +1,23 @@
 import json
 import random
 from lib.user_lib import UserList
+from lib.file_path import Path
+from lib.banner_helper import BannerHelper
 from typing import List
 from fastapi import HTTPException
 import os
 
 class GachaSystem:
-    def __init__(self, config_path, user_path, history_path):
-        self.config_path = config_path
+    def __init__(self):
+        self.path = Path()
+        self.config_path = self.path.config_path
         self.config = self.load_config()
         self.rate_up_choices = self.config["rate_up_choices"]
         self.rate_up_weights = self.config["rate_up_weight"]
         self.rarity_choices = self.config["rarity_choices"]
-        self.user_list = UserList(user_path=user_path, history_path=history_path)
-        self.history_path = history_path
+        self.user_list = UserList()
+        self.history_path = self.path.history_path
+        self.banner_helper = BannerHelper()
 
     def load_config(self):
         with open(self.config_path, "r") as f:
@@ -94,6 +98,7 @@ class GachaSystem:
 
     # gacha system
     def gacha_system(self, rarity: str, user: dict, gacha_pool: dict):
+        print(rarity)
         if rarity != "3-star":
             if rarity == "4-star" and user["four_star_rate_on"] == False:
                 four_star_rateup = random.choices(
@@ -175,7 +180,7 @@ class GachaSystem:
         self.save_history(history_entry=result, uid=user["uid"])
         return result
 
-    def pull(self, type: str, uid: str, gacha_pool: dict):
+    def pull(self, type: str, uid: str, banner_id: str):
         result = {
             "gacha_result": [],
             "current_pity": 0,
@@ -185,6 +190,9 @@ class GachaSystem:
             "gacha_color": "Blue",
             "uid": uid,
         }
+        print(banner_id)
+        gacha_pool = self.banner_helper.get_banner_by_id(banner_id)["gacha_pool"]
+        print(gacha_pool)
         user = self.user_list.get_user_internal(uid)
         if type == "ten_pull":
             if user["primogems"] >= 1600:

@@ -8,36 +8,8 @@ from lib.file_path import Path
 
 router = APIRouter(prefix="/user", tags=["User"])
 
-
-# class User(BaseModel):
-#     uid: str
-#     username: str
-#     password: str
-#     primogems: int
-#     pity: int
-#     four_star_pity: int
-#     is_rate_on: bool
-#     four_star_rate_on: bool
-#     rarity_weight: dict
-
-
-# class PublicUser(BaseModel):
-#     uid: str
-#     username: str
-#     primogems: int
-#     pity: int
-#     four_star_pity: int
-#     is_rate_on: bool
-#     four_star_rate_on: bool
-
-
-# class UserCreate(BaseModel):
-#     username: str
-#     password: str
-
-
 path = Path()
-user_list = UserList(user_path=path.user_path, history_path=path.history_path)
+user_list = UserList()
 
 @router.get(
     "/",

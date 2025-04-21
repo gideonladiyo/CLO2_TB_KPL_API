@@ -8,33 +8,10 @@ from lib.file_path import Path
 # from datetime import datetime
 from models.models import AfterGacha, HistoryGacha
 
-
-path = Path()
-gacha = GachaSystem(config_path=path.config_path, user_path=path.user_path, history_path=path.history_path)
-user_list = UserList(user_path=path.user_path, history_path=path.history_path)
-
-with open(path.item_path, "r") as f:
-    item_list = json.load(f)
+gacha = GachaSystem()
+user_list = UserList()
 
 router = APIRouter(prefix="/gacha", tags=["Gacha"])
-
-three_star_items = []
-four_star_items = []
-five_star_items = []
-
-for item in item_list:
-    if item["rarity"] == "3-star":
-        three_star_items.append(item)
-    elif item["rarity"] == "4-star":
-        four_star_items.append(item)
-    elif item["rarity"] == "5-star":
-        five_star_items.append(item)
-
-gacha_pool = {
-    "3-star": three_star_items,
-    "4-star": four_star_items,
-    "5-star": five_star_items,
-}
 
 @router.get(
     "/history/{uid}",
@@ -81,5 +58,5 @@ def get_history(uid: str):
         }
     }
 )
-def trigger_gacha(uid: str, type: str):
-    return gacha.pull(type=type, uid=uid, gacha_pool=gacha_pool)
+def trigger_gacha(uid: str, type: str, banner_id: str):
+    return gacha.pull(type=type, uid=uid, banner_id=banner_id)

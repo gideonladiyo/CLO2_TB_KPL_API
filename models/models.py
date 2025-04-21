@@ -31,7 +31,6 @@ class User(BaseModel):
     four_star_rate_on: bool
     rarity_weight: dict
 
-
 class PublicUser(BaseModel):
     uid: str
     username: str
@@ -41,7 +40,11 @@ class PublicUser(BaseModel):
     is_rate_on: bool
     four_star_rate_on: bool
 
-
 class UserCreate(BaseModel):
     username: str
     password: str
+
+class Banner(BaseModel):
+    banner_id: str
+    banner_name: str
+    gacha_pool: dict

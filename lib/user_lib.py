@@ -2,13 +2,15 @@ import json
 from models.models import UserCreate
 from fastapi import HTTPException
 import os
+from lib.file_path import Path
 
 class UserList:
-    def __init__(self, user_path:str, history_path:str):
-        self.user_path = user_path
+    def __init__(self):
+        self.path = Path()
+        self.user_path = self.path.user_path
         self.users = self.load_users()
         self.keys_to_remove = ["password", "rarity_weight"]
-        self.history_path = history_path
+        self.history_path = self.path.history_path
 
     def load_users(self):
         try:

@@ -1,0 +1,95 @@
+{
+    "rate_off_item_id": [
+        1,
+        16,
+        21,
+        22,
+        26,
+        27,
+        30,
+        35,
+        36
+    ],
+    "banner_list": [
+        {
+            "banner_id": "B001",
+            "banner_name": "Ganyu's Banner!",
+            "five_star_rate_up_id": 2,
+            "four_star_rate_up_id": [
+                3,
+                5,
+                6
+            ]
+        },
+        {
+            "banner_id": "B002",
+            "banner_name": "Raiden Shogun's Banner!",
+            "five_star_rate_up_id": 4,
+            "four_star_rate_up_id": [
+                8,
+                10,
+                11
+            ]
+        },
+        {
+            "banner_id": "B003",
+            "banner_name": "Klee's Banner!",
+            "five_star_rate_up_id": 7,
+            "four_star_rate_up_id": [
+                14,
+                15,
+                18
+            ]
+        },
+        {
+            "banner_id": "B004",
+            "banner_name": "Ayaka's Banner!",
+            "five_star_rate_up_id": 9,
+            "four_star_rate_up_id": [
+                19,
+                20,
+                23
+            ]
+        },
+        {
+            "banner_id": "B005",
+            "banner_name": "Albedo's Banner!",
+            "five_star_rate_up_id": 12,
+            "four_star_rate_up_id": [
+                24,
+                25,
+                28
+            ]
+        },
+        {
+            "banner_id": "B006",
+            "banner_name": "Tartaglia's Banner!",
+            "five_star_rate_up_id": 13,
+            "four_star_rate_up_id": [
+                29,
+                31,
+                32
+            ]
+        },
+        {
+            "banner_id": "B007",
+            "banner_name": "Eula's Banner!",
+            "five_star_rate_up_id": 17,
+            "four_star_rate_up_id": [
+                33,
+                34,
+                37
+            ]
+        },
+        {
+            "banner_id": "B008",
+            "banner_name": "Raiden Shogun's Rerun Banner!",
+            "five_star_rate_up_id": 4,
+            "four_star_rate_up_id": [
+                38,
+                39,
+                40
+            ]
+        }
+    ]
+}
