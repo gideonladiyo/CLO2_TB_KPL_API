@@ -1,0 +1,72 @@
+[
+    {
+        "uid": "800000001",
+        "item_name": "Klee",
+        "rarity": "5-star",
+        "user_pity": 0,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Slingshot",
+        "rarity": "3-star",
+        "user_pity": 1,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 2,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Raven Bow",
+        "rarity": "3-star",
+        "user_pity": 3,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sacrificial Sword",
+        "rarity": "4-star",
+        "user_pity": 4,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sacrificial Sword",
+        "rarity": "4-star",
+        "user_pity": 5,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Traveler's Handy Sword",
+        "rarity": "3-star",
+        "user_pity": 6,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Skyrider Sword",
+        "rarity": "3-star",
+        "user_pity": 7,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 8,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 9,
+        "user_4star_pity": 4
+    }
+]

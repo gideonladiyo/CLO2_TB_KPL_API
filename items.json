@@ -318,5 +318,166 @@
         "type": "Catalyst",
         "rarity": "4-star",
         "is_rate_up": false
+    },
+
+    {
+        "id": 41,
+        "name": "Cool Steel",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 42,
+        "name": "Harbinger of Dawn",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 43,
+        "name": "Thrilling Tales of Dragon Slayers",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 44,
+        "name": "Sharpshooter's Oath",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 45,
+        "name": "Slingshot",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 46,
+        "name": "Black Tassel",
+        "item_type": "weapon",
+        "type": "Polearm",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 47,
+        "name": "Debate Club",
+        "item_type": "weapon",
+        "type": "Claymore",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 48,
+        "name": "Bloodtainted Greatsword",
+        "item_type": "weapon",
+        "type": "Claymore",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 49,
+        "name": "Skyrider Sword",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 50,
+        "name": "Magic Guide",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 51,
+        "name": "Raven Bow",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 52,
+        "name": "Ferrous Shadow",
+        "item_type": "weapon",
+        "type": "Claymore",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 53,
+        "name": "Emerald Orb",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 54,
+        "name": "Twin Nephrite",
+        "item_type": "weapon",
+        "type": "Catalyst",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 55,
+        "name": "Hunter's Bow",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 56,
+        "name": "Traveler's Handy Sword",
+        "item_type": "weapon",
+        "type": "Sword",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 57,
+        "name": "Messenger",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 58,
+        "name": "Halberd",
+        "item_type": "weapon",
+        "type": "Polearm",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 59,
+        "name": "White Tassel",
+        "item_type": "weapon",
+        "type": "Polearm",
+        "rarity": "3-star",
+        "is_rate_up": false
+    },
+    {
+        "id": 60,
+        "name": "Recurve Bow",
+        "item_type": "weapon",
+        "type": "Bow",
+        "rarity": "3-star",
+        "is_rate_up": false
     }
 ]

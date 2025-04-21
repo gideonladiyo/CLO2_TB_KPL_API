@@ -10,5 +10,5 @@ class Path:
             os.path.join(os.path.dirname(__file__), "..", "users.json")
         )
         self.history_path = os.path.normpath(
-            os.path.join(os.path.dirname(__file__), "..", "history.json")
+            os.path.join(os.path.dirname(__file__), "..", "user_history")
         )

@@ -1,18 +1,14 @@
 import json
 import random
-from models.models import User
 from lib.user_lib import UserList
 from typing import List
-from datetime import datetime
+from fastapi import HTTPException
+import os
 
 class GachaSystem:
     def __init__(self, config_path, user_path, history_path):
         self.config_path = config_path
         self.config = self.load_config()
-        # self.rarity_weights = self.config["rarity_weight"]
-        
-        print(self.config)
-        
         self.rate_up_choices = self.config["rate_up_choices"]
         self.rate_up_weights = self.config["rate_up_weight"]
         self.rarity_choices = self.config["rarity_choices"]
@@ -22,15 +18,20 @@ class GachaSystem:
     def load_config(self):
         with open(self.config_path, "r") as f:
             return json.load(f)
-    
-    def save_history(self, history: dict):
-        with open(self.history_path, "r") as f:
-            result = json.load(f)
+
+    def save_history(self, uid:str, history_entry: dict):
+        history_file = os.path.join(self.history_path, f"{uid}.json")
+        if os.path.exists(history_file):
+            with open(history_file, "r") as f:
+                try:
+                    history = json.load(f)
+                except (json.JSONDecodeError, FileNotFoundError, ValueError) as e:
+                    print(f"[Error] Failed to load user: {e}")
+                    return []
+        history.append(history_entry)
         
-        result.append(history)
-        
-        with open(self.history_path, "w") as f:
-            json.dump(result, f, indent=4)
+        with open(history_file, "w") as f:
+            json.dump(history, f, indent=4)
 
     def item_return(self, arr: list):
         return random.choice(arr)
@@ -38,23 +39,23 @@ class GachaSystem:
     def reset_percentage(self, updated_4star: int, updated_5star: int, user:dict):
         if updated_5star == 0:
             if user["pity"] >= 70:
-                user["rarity_weights"]["3-star"] += 13
-                user["rarity_weights"]["5-star"] -= 13
+                user["rarity_weight"]["3-star"] += 13
+                user["rarity_weight"]["5-star"] -= 13
             elif user["pity"] >= 50:
-                user["rarity_weights"]["3-star"] += 1
-                user["rarity_weights"]["5-star"] -= 1
+                user["rarity_weight"]["3-star"] += 1
+                user["rarity_weight"]["5-star"] -= 1
 
         if updated_4star == 0:
             if user["four_star_pity"] >= 8:
-                user["rarity_weights"]["3-star"] += 30
-                user["rarity_weights"]["4-star"] -= 30
+                user["rarity_weight"]["3-star"] += 30
+                user["rarity_weight"]["4-star"] -= 30
             elif user["four_star_pity"] >= 5:
-                user["rarity_weights"]["3-star"] += 10
-                user["rarity_weights"]["4-star"] -= 10
+                user["rarity_weight"]["3-star"] += 10
+                user["rarity_weight"]["4-star"] -= 10
 
-        self.user_list.save_user_rarity_weight(user["uid"], user["rarity_weights"])
+        self.user_list.save_user_rarity_weight(user["uid"], user["rarity_weight"])
 
-    def change_percentage(self, user: User):
+    def change_percentage(self, user: dict):
         pity = user["pity"]
         four_star_pity = user["four_star_pity"]
         rarity_weights = user["rarity_weight"]
@@ -75,7 +76,7 @@ class GachaSystem:
             rarity_weights["3-star"] -= 10
             rarity_weights["4-star"] += 10
 
-        self.user_list.save_user_rarity_weight(user["uid"], user["rarity_weights"])
+        self.user_list.save_user_rarity_weight(user["uid"], user["rarity_weight"])
 
     def determine_status(self, items: List):
         count = {"3-star": 0, "4-star": 0, "5-star": 0}
@@ -100,28 +101,28 @@ class GachaSystem:
                 )[0]
                 if four_star_rateup:
                     item = self.item_return(
-                        [item for item in gacha_pool[rarity] if item.is_rate_up]
+                        [item for item in gacha_pool[rarity] if item["is_rate_up"]]
                     )
                 else:
                     item = self.item_return(
-                        [item for item in gacha_pool[rarity] if not item.is_rate_up]
+                        [item for item in gacha_pool[rarity] if not item["is_rate_up"]]
                     )
             elif rarity == "4-star" and user["four_star_rate_on"] == True:
-                item = self.item_return([item for item in gacha_pool[rarity] if item.is_rate_up])
+                item = self.item_return([item for item in gacha_pool[rarity] if item["is_rate_up"]])
             elif rarity == "5-star" and user["is_rate_on"] == False:
                 five_star_rateup = random.choices(
                     self.rate_up_choices, weights=[value for value in self.rate_up_weights], k=1
                 )[0]
                 if five_star_rateup:
                     item = self.item_return(
-                        [item for item in gacha_pool[rarity] if item.is_rate_up]
+                        [item for item in gacha_pool[rarity] if item["is_rate_up"]]
                     )
                 else:
                     item = self.item_return(
-                        [item for item in gacha_pool[rarity] if not item.is_rate_up]
+                        [item for item in gacha_pool[rarity] if not item["is_rate_up"]]
                     )
             elif rarity == "5-star" and user["is_rate_on"] == True:
-                item = self.item_return([item for item in gacha_pool[rarity] if item.is_rate_up])
+                item = self.item_return([item for item in gacha_pool[rarity] if item["is_rate_up"]])
         else:
             item = self.item_return(gacha_pool[rarity])
 
@@ -143,7 +144,7 @@ class GachaSystem:
 
         else:
             rarity = random.choices(
-                self.rarity_choices, weights=[value for value in user["rarity_weights"].values()], k=1
+                self.rarity_choices, weights=[value for value in user["rarity_weight"].values()], k=1
             )[0]
             item = self.gacha_system(rarity, user, gacha_pool)
 
@@ -153,7 +154,7 @@ class GachaSystem:
                     user["four_star_rate_on"] = False
                 else:
                     user["four_star_rate_on"] = True
-                self.reset_percentage(0, user.pity, user)
+                self.reset_percentage(0, user["pity"], user)
                 user["four_star_pity"] = 0
             else:
                 user["four_star_pity"] += 1
@@ -161,8 +162,8 @@ class GachaSystem:
                     user["is_rate_on"] = False
                 else:
                     user["is_rate_on"] = True
-                self.reset_percentage(user.four_star_pity, 0, user)
-                user.pity = 0
+                self.reset_percentage(user["four_star_pity"], 0, user)
+                user["pity"] = 0
 
         result = {
             "uid": user["uid"],
@@ -170,35 +171,43 @@ class GachaSystem:
             "rarity": rarity,
             "user_pity": user["pity"],
             "user_4star_pity": user["four_star_pity"],
-            "date": datetime.now(),
         }
-
-        self.save_history(history=result)
-
+        self.save_history(history_entry=result, uid=user["uid"])
         return result
 
-    # 10 gacha
-    def pull(self, type: str, user: dict, gacha_pool: dict):
+    def pull(self, type: str, uid: str, gacha_pool: dict):
         result = {
             "gacha_result": [],
             "current_pity": 0,
             "current_4star_pity": 0,
-            "five_star_rateon": False,
-            "four_star_rateon": False,
+            "five_star_rate_on": False,
+            "four_star_rate_on": False,
             "gacha_color": "Blue",
-            "uid": user["uid"],
+            "uid": uid,
         }
-
+        user = self.user_list.get_user_internal(uid)
         if type == "ten_pull":
-            for _ in range(10):
-                result["gacha_result"].append(self.gacha(user, gacha_pool))
+            if user["primogems"] >= 1600:
+                for _ in range(10):
+                    result["gacha_result"].append(self.gacha(user, gacha_pool))
+                    self.user_list.update_user_primogems(user["uid"])
+            else:
+                raise HTTPException(status_code=400, detail="Not enough primogems for a ten pull!")
         elif type == "one_pull":
-            result["gacha_result"].append(self.gacha(user, gacha_pool))
+            if user["primogems"] >= 160:
+                result["gacha_result"].append(self.gacha(user, gacha_pool))
+                self.user_list.update_user_primogems(user["uid"])
+            else:
+                raise HTTPException(status_code=400, detail="Not enough primogems for a one pull!")
+        else:
+            raise HTTPException(status_code=400, detail="Invalid pull type specified.")
 
         result["current_pity"] = user["pity"]
         result["current_4star_pity"] = user["four_star_pity"]
-        result["five_star_rateon"] = user["is_rate_on"]
-        result["four_star_rateon"] = user["four_star_rate_on"]
+        result["five_star_rate_on"] = user["is_rate_on"]
+        result["four_star_rate_on"] = user["four_star_rate_on"]
         result["gacha_color"] = self.determine_status(result["gacha_result"])
+
+        self.user_list.update_user_pity(user=user)
 
         return result

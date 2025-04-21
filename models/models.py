@@ -18,7 +18,6 @@ class HistoryGacha(BaseModel):
     rarity: str
     user_pity: int
     user_4star_pity: int
-    date: datetime
 
 
 class User(BaseModel):

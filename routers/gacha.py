@@ -18,23 +18,6 @@ with open(path.item_path, "r") as f:
 
 router = APIRouter(prefix="/gacha", tags=["Gacha"])
 
-# class AfterGacha(BaseModel):
-#     gacha_result: List
-#     current_pity: int
-#     current_4star_pity: int
-#     five_star_rate_on: bool
-#     four_star_rate_on: bool
-#     gacha_color: str
-#     uid: str
-
-# class HistoryGacha(BaseModel):
-#     uid: str
-#     item_name: str
-#     rarity: str
-#     user_pity: int
-#     user_4star_pity: int
-#     date: datetime
-
 three_star_items = []
 four_star_items = []
 five_star_items = []
@@ -90,8 +73,8 @@ def get_history(uid: str):
                 ],
                 "current_pity": 10,
                 "current_4star_pity": 5,
-                "five_star_rateon": False,
-                "four_star_rateon": False,
+                "five_star_rate_on": False,
+                "four_star_rateo_n": False,
                 "gacha_color": "Blue",
                 "uid": "example UID"
             }
@@ -99,5 +82,4 @@ def get_history(uid: str):
     }
 )
 def trigger_gacha(uid: str, type: str):
-    user = user_list.get_user_by_uid(uid)
-    return gacha.pull(type=type, user=user, gacha_pool=gacha_pool)
+    return gacha.pull(type=type, uid=uid, gacha_pool=gacha_pool)

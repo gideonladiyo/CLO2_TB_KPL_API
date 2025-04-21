@@ -1,8 +1,9 @@
 from fastapi import APIRouter
 from typing import List
+
 # from pydantic import BaseModel
 from lib.user_lib import UserList
-from models.models import User, PublicUser, UserCreate
+from models.models import PublicUser, UserCreate
 from lib.file_path import Path
 
 router = APIRouter(prefix="/user", tags=["User"])
@@ -37,7 +38,6 @@ router = APIRouter(prefix="/user", tags=["User"])
 
 path = Path()
 user_list = UserList(user_path=path.user_path, history_path=path.history_path)
-
 
 @router.get(
     "/",
@@ -101,7 +101,7 @@ def get_all_user():
     },
 )
 def get_user(uid: str):
-    return user_list.get_user_by_uid(uid)
+    return user_list.get_public_user_info(uid)
 
 
 @router.post(
@@ -128,6 +128,30 @@ def create_user(user: UserCreate):
     return user_list.create_user(user)
 
 
+@router.post(
+    "/primogems/{uid}",
+    response_model=PublicUser,
+    summary="Menambah primogem dari user",
+    status_code=201,
+    responses={
+        201: {
+            "description": "Primogems berhasil ditambahkan",
+            "content": {
+                "uid": "800000003",
+                "username": "Jonathan",
+                "primogems": 1000000,
+                "pity": 0,
+                "four_star_pity": 0,
+                "is_rate_on": False,
+                "four_star_rate_on": False,
+            },
+        }
+    },
+)
+def add_primogems(uid: str, primogems: int):
+    user_list.add_user_primogems(uid=uid, primogems=primogems)
+    return user_list.get_public_user_info(uid)
+
 @router.put(
     "/{uid}",
     response_model=PublicUser,
@@ -153,7 +177,6 @@ def create_user(user: UserCreate):
 )
 def update_user(uid: str, user: UserCreate):
     return user_list.update_user(uid, user)
-
 
 @router.delete(
     "/{uid}",
