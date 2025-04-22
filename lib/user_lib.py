@@ -58,7 +58,7 @@ class UserList:
     def create_user(self, user: UserCreate):
         if  any(u["username"] == user.username for u in self.users):
             raise HTTPException(status_code=400, detail="Username telah digunakan")
-        
+
         new_uid = (
             str(int(max([u["uid"] for u in self.users])) + 1)
             if self.users
@@ -140,6 +140,11 @@ class UserList:
     def delete_user(self, uid: str):
         for i, u in enumerate(self.users):
             if u["uid"] == uid:
+                history_file = os.path.join(self.history_path, f"{uid}.json")
+                try:
+                    os.remove(history_file)
+                except FileNotFoundError as e:
+                    print(f"[Error] Tidak bisa menghapus file: {e}")
                 del self.users[i]
                 self.save_user()
                 return {"message": f"User dengan ID {uid} telah dihapus"}
@@ -158,7 +163,7 @@ class UserList:
         except (json.JSONDecodeError, ValueError) as e:
             print(f"[Error] Failed to load history for UID {uid}: {e}")
             return []
-    
+
     def user_authentication(self, username: str, password: str):
         for u in self.users:
             if u["username"] == username:
