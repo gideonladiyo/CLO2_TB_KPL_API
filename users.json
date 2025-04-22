@@ -3,15 +3,15 @@
         "uid": "800000001",
         "username": "Gideon",
         "password": "password123",
-        "primogems": 942160,
-        "pity": 50,
-        "four_star_pity": 0,
+        "primogems": 940560,
+        "pity": 10,
+        "four_star_pity": 3,
         "is_rate_on": false,
-        "four_star_rate_on": false,
+        "four_star_rate_on": true,
         "rarity_weight": {
-            "3-star": 93,
+            "3-star": 94,
             "4-star": 5,
-            "5-star": 2
+            "5-star": 1
         }
     },
     {
@@ -33,6 +33,21 @@
         "uid": "800000003",
         "username": "Jonathan",
         "password": "password123",
+        "primogems": 1000000,
+        "pity": 0,
+        "four_star_pity": 0,
+        "is_rate_on": false,
+        "four_star_rate_on": false,
+        "rarity_weight": {
+            "3-star": 94,
+            "4-star": 5,
+            "5-star": 1
+        }
+    },
+    {
+        "uid": "800000004",
+        "username": "admin",
+        "password": "admin123",
         "primogems": 1000000,
         "pity": 0,
         "four_star_pity": 0,

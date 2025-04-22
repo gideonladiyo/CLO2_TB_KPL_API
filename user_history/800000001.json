@@ -348,5 +348,75 @@
         "rarity": "4-star",
         "user_pity": 50,
         "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Hunter's Bow",
+        "rarity": "3-star",
+        "user_pity": 1,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Emerald Orb",
+        "rarity": "3-star",
+        "user_pity": 2,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Halberd",
+        "rarity": "3-star",
+        "user_pity": 3,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Debate Club",
+        "rarity": "3-star",
+        "user_pity": 4,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Debate Club",
+        "rarity": "3-star",
+        "user_pity": 5,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Harbinger of Dawn",
+        "rarity": "3-star",
+        "user_pity": 6,
+        "user_4star_pity": 6
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Favonius Warbow",
+        "rarity": "4-star",
+        "user_pity": 7,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 8,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Hunter's Bow",
+        "rarity": "3-star",
+        "user_pity": 9,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Slingshot",
+        "rarity": "3-star",
+        "user_pity": 10,
+        "user_4star_pity": 3
     }
 ]

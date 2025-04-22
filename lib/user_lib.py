@@ -25,8 +25,11 @@ class UserList:
             return []
 
     def save_user(self):
-        with open(self.user_path, "w") as f:
-            json.dump(self.users, f, indent=4)
+        try:
+            with open(self.user_path, "w") as f:
+                json.dump(self.users, f, indent=4)
+        except (PermissionError, TypeError, OSError, json.JSONDecodeError) as e:
+            print(f"[Error]: Gagal menyimpan user: {e}")
 
     def get_all_user(self):
         result = []
@@ -53,6 +56,9 @@ class UserList:
         raise HTTPException(status_code=404, detail="User tidak ditemukan")
 
     def create_user(self, user: UserCreate):
+        if  any(u["username"] == user.username for u in self.users):
+            raise HTTPException(status_code=400, detail="Username telah digunakan")
+        
         new_uid = (
             str(int(max([u["uid"] for u in self.users])) + 1)
             if self.users
@@ -72,9 +78,13 @@ class UserList:
         self.users.append(new_data)
         self.save_user()
 
-        history_file = os.path.join(self.history_path, f"{new_uid}.json")
-        with open(history_file, "w") as f:
-            json.dump([], f)
+        try:
+            history_file = os.path.join(self.history_path, f"{new_uid}.json")
+            with open(history_file, "w") as f:
+                json.dump([], f)
+        except (PermissionError, TypeError, OSError, json.JSONDecodeError) as e:
+            print(f"[Error] Gagal menyimpan history gacha: {e}")
+
         return self.get_public_user_info(new_uid)
 
     def add_user_primogems(self, uid:str, primogems: int):
@@ -148,3 +158,11 @@ class UserList:
         except (json.JSONDecodeError, ValueError) as e:
             print(f"[Error] Failed to load history for UID {uid}: {e}")
             return []
+    
+    def user_authentication(self, username: str, password: str):
+        for u in self.users:
+            if u["username"] == username:
+                user = u
+        if user["password"] == password:
+            return user
+        raise HTTPException(status_code=401, detail="Username atau password salah")

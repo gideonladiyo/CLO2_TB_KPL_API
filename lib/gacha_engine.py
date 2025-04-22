@@ -41,23 +41,30 @@ class GachaSystem:
         return random.choice(arr)
 
     def reset_percentage(self, updated_4star: int, updated_5star: int, user:dict):
+        rarity_weight = user["rarity_weight"]
+        pity = user["pity"]
+        four_star_pity = user["four_star_pity"]
+        
         if updated_5star == 0:
-            if user["pity"] >= 70:
-                user["rarity_weight"]["3-star"] += 13
-                user["rarity_weight"]["5-star"] -= 13
-            elif user["pity"] >= 50:
-                user["rarity_weight"]["3-star"] += 1
-                user["rarity_weight"]["5-star"] -= 1
+            if pity >= 70:
+                rarity_weight["3-star"] += 13
+                rarity_weight["5-star"] -= 13
+            elif pity >= 50:
+                rarity_weight["3-star"] += 1
+                rarity_weight["5-star"] -= 1
 
         if updated_4star == 0:
-            if user["four_star_pity"] >= 8:
-                user["rarity_weight"]["3-star"] += 30
-                user["rarity_weight"]["4-star"] -= 30
-            elif user["four_star_pity"] >= 5:
-                user["rarity_weight"]["3-star"] += 10
-                user["rarity_weight"]["4-star"] -= 10
+            if four_star_pity >= 8:
+                rarity_weight["3-star"] += 30
+                rarity_weight["4-star"] -= 30
+            elif four_star_pity >= 5:
+                rarity_weight["3-star"] += 10
+                rarity_weight["4-star"] -= 10
+        
+        if any(rarity_weight[star] < 0 for star in ["3-star", "4-star", "5-star"]):
+            raise HTTPException(status_code=400, detail="rarity weight < 0")
 
-        self.user_list.save_user_rarity_weight(user["uid"], user["rarity_weight"])
+        self.user_list.save_user_rarity_weight(user["uid"], rarity_weight)
 
     def change_percentage(self, user: dict):
         pity = user["pity"]
@@ -98,7 +105,6 @@ class GachaSystem:
 
     # gacha system
     def gacha_system(self, rarity: str, user: dict, gacha_pool: dict):
-        print(rarity)
         if rarity != "3-star":
             if rarity == "4-star" and user["four_star_rate_on"] == False:
                 four_star_rateup = random.choices(
@@ -190,9 +196,7 @@ class GachaSystem:
             "gacha_color": "Blue",
             "uid": uid,
         }
-        print(banner_id)
         gacha_pool = self.banner_helper.get_banner_by_id(banner_id)["gacha_pool"]
-        print(gacha_pool)
         user = self.user_list.get_user_internal(uid)
         if type == "ten_pull":
             if user["primogems"] >= 1600:

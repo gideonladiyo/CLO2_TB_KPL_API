@@ -6,7 +6,6 @@ from lib.banner_helper import BannerHelper
 router = APIRouter(prefix="/banner", tags=["Banner"])
 banner = BannerHelper()
 
-
 @router.get(
     "/",
     response_model=List[Banner],
@@ -22,7 +21,7 @@ banner = BannerHelper()
                             "banner_name": "Ganyu's Banner!",
                             "gacha_pool": {
                                 "3-star": [],
-                                "4-": [],
+                                "4-star": [],
                                 "5-star": [
                                     {
                                         "id": 1,
@@ -42,8 +41,16 @@ banner = BannerHelper()
     },
 )
 def get_all_banner():
-    return banner.get_all_banners()
+    """
+    Mengambil daftar seluruh banner yang tersedia.
 
+    Returns:
+    - Daftar objek `Banner` yang berisi informasi tentang banner, termasuk ID, nama banner, dan pool gacha.
+
+    Status Code:
+    - **200**: Daftar banner berhasil diambil.
+    """
+    return banner.get_all_banners()
 
 @router.get(
     "/{banner_id}",
@@ -59,7 +66,7 @@ def get_all_banner():
                         "banner_name": "Ganyu's Banner!",
                         "gacha_pool": {
                             "3-star": [],
-                            "4-": [],
+                            "4-star": [],
                             "5-star": [
                                 {
                                     "id": 1,
@@ -74,8 +81,27 @@ def get_all_banner():
                     }
                 }
             },
-        }
+        },
+        404: {
+            "description": "Banner dengan ID yang diberikan tidak ditemukan",
+            "content": {
+                "application/json": {"example": {"detail": "Banner tidak ditemukan"}}
+            },
+        },
     },
 )
 def get_banner_by_id(banner_id: str):
+    """
+    Mengambil informasi banner berdasarkan ID banner.
+
+    Parameter:
+    - **banner_id**: ID banner yang akan diambil datanya.
+
+    Returns:
+    - Objek `Banner` yang berisi informasi mengenai banner, termasuk nama, ID, dan pool gacha.
+
+    Status Code:
+    - **200**: Banner ditemukan dan berhasil diambil.
+    - **404**: Banner dengan ID yang diberikan tidak ditemukan.
+    """
     return banner.get_banner_by_id(banner_id=banner_id)
