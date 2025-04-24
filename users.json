@@ -43,20 +43,5 @@
             "4-star": 5,
             "5-star": 1
         }
-    },
-    {
-        "uid": "800000004",
-        "username": "admin",
-        "password": "admin123",
-        "primogems": 1000000,
-        "pity": 0,
-        "four_star_pity": 0,
-        "is_rate_on": false,
-        "four_star_rate_on": false,
-        "rarity_weight": {
-            "3-star": 94,
-            "4-star": 5,
-            "5-star": 1
-        }
     }
 ]

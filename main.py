@@ -14,6 +14,10 @@ app = FastAPI(
             "name": "Gacha",
             "description": "gacha endpoint",
         },
+        {
+            "name": "Banner",
+            "description": "banner endpoint"
+        }
     ],
 )
 

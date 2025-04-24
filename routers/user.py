@@ -11,7 +11,6 @@ router = APIRouter(prefix="/user", tags=["User"])
 path = Path()
 user_list = UserList()
 
-
 @router.get(
     "/",
     response_model=List[PublicUser],
