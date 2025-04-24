@@ -3,10 +3,10 @@
         "uid": "800000001",
         "username": "Gideon",
         "password": "password123",
-        "primogems": 924560,
+        "primogems": 912720,
         "pity": 0,
-        "four_star_pity": 0,
-        "is_rate_on": false,
+        "four_star_pity": 2,
+        "is_rate_on": true,
         "four_star_rate_on": false,
         "rarity_weight": {
             "3-star": 94,

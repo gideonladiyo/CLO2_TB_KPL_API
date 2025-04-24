@@ -1,3 +1,520 @@
 [
-    
+    {
+        "uid": "800000001",
+        "item_name": "Hunter's Bow",
+        "rarity": "3-star",
+        "user_pity": 1,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "White Tassel",
+        "rarity": "3-star",
+        "user_pity": 2,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Black Tassel",
+        "rarity": "3-star",
+        "user_pity": 3,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sharpshooter's Oath",
+        "rarity": "3-star",
+        "user_pity": 4,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Raven Bow",
+        "rarity": "3-star",
+        "user_pity": 5,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sucrose",
+        "rarity": "4-star",
+        "user_pity": 6,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Black Tassel",
+        "rarity": "3-star",
+        "user_pity": 7,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Halberd",
+        "rarity": "3-star",
+        "user_pity": 8,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Halberd",
+        "rarity": "3-star",
+        "user_pity": 9,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Raven Bow",
+        "rarity": "3-star",
+        "user_pity": 10,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Ferrous Shadow",
+        "rarity": "3-star",
+        "user_pity": 11,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sharpshooter's Oath",
+        "rarity": "3-star",
+        "user_pity": 12,
+        "user_4star_pity": 6
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Twin Nephrite",
+        "rarity": "3-star",
+        "user_pity": 13,
+        "user_4star_pity": 7
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Bennett",
+        "rarity": "4-star",
+        "user_pity": 14,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Debate Club",
+        "rarity": "3-star",
+        "user_pity": 15,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Ferrous Shadow",
+        "rarity": "3-star",
+        "user_pity": 16,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Traveler's Handy Sword",
+        "rarity": "3-star",
+        "user_pity": 17,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Thrilling Tales of Dragon Slayers",
+        "rarity": "3-star",
+        "user_pity": 18,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Thrilling Tales of Dragon Slayers",
+        "rarity": "3-star",
+        "user_pity": 19,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sharpshooter's Oath",
+        "rarity": "3-star",
+        "user_pity": 20,
+        "user_4star_pity": 6
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 21,
+        "user_4star_pity": 7
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Traveler's Handy Sword",
+        "rarity": "3-star",
+        "user_pity": 22,
+        "user_4star_pity": 8
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Bennett",
+        "rarity": "4-star",
+        "user_pity": 23,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Twin Nephrite",
+        "rarity": "3-star",
+        "user_pity": 24,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 25,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Twin Nephrite",
+        "rarity": "3-star",
+        "user_pity": 26,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Black Tassel",
+        "rarity": "3-star",
+        "user_pity": 27,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Ferrous Shadow",
+        "rarity": "3-star",
+        "user_pity": 28,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sucrose",
+        "rarity": "4-star",
+        "user_pity": 29,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Thrilling Tales of Dragon Slayers",
+        "rarity": "3-star",
+        "user_pity": 30,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Thrilling Tales of Dragon Slayers",
+        "rarity": "3-star",
+        "user_pity": 31,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 32,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Bloodtainted Greatsword",
+        "rarity": "3-star",
+        "user_pity": 33,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Recurve Bow",
+        "rarity": "3-star",
+        "user_pity": 34,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Raven Bow",
+        "rarity": "3-star",
+        "user_pity": 35,
+        "user_4star_pity": 6
+    },
+    {
+        "uid": "800000001",
+        "item_name": "White Tassel",
+        "rarity": "3-star",
+        "user_pity": 36,
+        "user_4star_pity": 7
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Slingshot",
+        "rarity": "3-star",
+        "user_pity": 37,
+        "user_4star_pity": 8
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sucrose",
+        "rarity": "4-star",
+        "user_pity": 38,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 39,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Slingshot",
+        "rarity": "3-star",
+        "user_pity": 40,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Emerald Orb",
+        "rarity": "3-star",
+        "user_pity": 41,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Slingshot",
+        "rarity": "3-star",
+        "user_pity": 42,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Hunter's Bow",
+        "rarity": "3-star",
+        "user_pity": 43,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Lisa",
+        "rarity": "4-star",
+        "user_pity": 44,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Skyrider Sword",
+        "rarity": "3-star",
+        "user_pity": 45,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Black Tassel",
+        "rarity": "3-star",
+        "user_pity": 46,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Halberd",
+        "rarity": "3-star",
+        "user_pity": 47,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 48,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Kaeya",
+        "rarity": "4-star",
+        "user_pity": 49,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Halberd",
+        "rarity": "3-star",
+        "user_pity": 50,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Twin Nephrite",
+        "rarity": "3-star",
+        "user_pity": 51,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Magic Guide",
+        "rarity": "3-star",
+        "user_pity": 52,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Magic Guide",
+        "rarity": "3-star",
+        "user_pity": 53,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Raven Bow",
+        "rarity": "3-star",
+        "user_pity": 54,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Twin Nephrite",
+        "rarity": "3-star",
+        "user_pity": 55,
+        "user_4star_pity": 6
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sucrose",
+        "rarity": "4-star",
+        "user_pity": 56,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Black Tassel",
+        "rarity": "3-star",
+        "user_pity": 57,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Bloodtainted Greatsword",
+        "rarity": "3-star",
+        "user_pity": 58,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "White Tassel",
+        "rarity": "3-star",
+        "user_pity": 59,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Debate Club",
+        "rarity": "3-star",
+        "user_pity": 60,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Kaeya",
+        "rarity": "4-star",
+        "user_pity": 61,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Twin Nephrite",
+        "rarity": "3-star",
+        "user_pity": 62,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Traveler's Handy Sword",
+        "rarity": "3-star",
+        "user_pity": 63,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Halberd",
+        "rarity": "3-star",
+        "user_pity": 64,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Cool Steel",
+        "rarity": "3-star",
+        "user_pity": 65,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Rust",
+        "rarity": "4-star",
+        "user_pity": 66,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Black Tassel",
+        "rarity": "3-star",
+        "user_pity": 67,
+        "user_4star_pity": 1
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Magic Guide",
+        "rarity": "3-star",
+        "user_pity": 68,
+        "user_4star_pity": 2
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Ferrous Shadow",
+        "rarity": "3-star",
+        "user_pity": 69,
+        "user_4star_pity": 3
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Hunter's Bow",
+        "rarity": "3-star",
+        "user_pity": 70,
+        "user_4star_pity": 4
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Messenger",
+        "rarity": "3-star",
+        "user_pity": 71,
+        "user_4star_pity": 5
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Emerald Orb",
+        "rarity": "3-star",
+        "user_pity": 72,
+        "user_4star_pity": 6
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Sucrose",
+        "rarity": "4-star",
+        "user_pity": 73,
+        "user_4star_pity": 0
+    },
+    {
+        "uid": "800000001",
+        "item_name": "Lost Prayer to the Sacred Winds",
+        "rarity": "5-star",
+        "user_pity": 0,
+        "user_4star_pity": 2
+    }
 ]

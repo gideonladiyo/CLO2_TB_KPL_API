@@ -9,14 +9,13 @@ import os
 
 class GachaSystem:
     def __init__(self):
-        self.path = Path()
-        self.config_path = self.path.config_path
+        self.config_path = Path.CONFIG_PATH
         self.config = self.load_config()
         self.rate_up_choices = self.config["rate_up_choices"]
         self.rate_up_weights = self.config["rate_up_weight"]
         self.rarity_choices = self.config["rarity_choices"]
         self.user_list = UserList()
-        self.history_path = self.path.history_path
+        self.history_path = Path.HISTORY_PATH
         self.banner_helper = BannerHelper()
 
     def load_config(self):

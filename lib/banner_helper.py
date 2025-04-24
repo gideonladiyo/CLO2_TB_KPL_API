@@ -4,9 +4,8 @@ from lib.file_path import Path
 
 class BannerHelper:
     def __init__(self):
-        self.path = Path()
-        self.items_path = self.path.item_path
-        self.config_path = self.path.banner_config_path
+        self.items_path = Path.ITEM_PATH
+        self.config_path = Path.BANNER_CONFIG_PATH
         self.items = self.load_all_items()
         self.config = self.load_item_config()
         self.banners = self.get_all_banners()
@@ -23,7 +22,6 @@ class BannerHelper:
             return []
 
     def load_item_config(self):
-        print(self.path.banner_config_path)
         try:
             with open(self.config_path, "r") as f:
                 data = json.load(f)

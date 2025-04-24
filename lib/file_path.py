@@ -1,17 +1,10 @@
 import os
 
 class Path:
-    def __init__(self):
-        self.config_path = os.path.join(os.path.dirname(__file__), "..", "gacha_config.json")
-        self.item_path = os.path.normpath(
-            os.path.join(os.path.dirname(__file__), "..", "items.json")
-        )
-        self.user_path = os.path.normpath(
-            os.path.join(os.path.dirname(__file__), "..", "users.json")
-        )
-        self.history_path = os.path.normpath(
-            os.path.join(os.path.dirname(__file__), "..", "user_history")
-        )
-        self.banner_config_path = os.path.normpath(
-            os.path.join(os.path.dirname(__file__), "..", "banner_config.json")
-        )
+    BASE_DIR = os.path.normpath(os.path.join(os.path.dirname(__file__), ".."))
+
+    CONFIG_PATH = os.path.join(BASE_DIR, "gacha_config.json")
+    ITEM_PATH = os.path.join(BASE_DIR, "items.json")
+    USER_PATH = os.path.join(BASE_DIR, "users.json")
+    HISTORY_PATH = os.path.join(BASE_DIR, "user_history")
+    BANNER_CONFIG_PATH = os.path.join(BASE_DIR, "banner_config.json")

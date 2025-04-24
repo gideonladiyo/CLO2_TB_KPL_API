@@ -6,11 +6,10 @@ from lib.file_path import Path
 
 class UserList:
     def __init__(self):
-        self.path = Path()
-        self.user_path = self.path.user_path
+        self.user_path = Path.USER_PATH
         self.users = self.load_users()
         self.keys_to_remove = ["password", "rarity_weight"]
-        self.history_path = self.path.history_path
+        self.history_path = Path.HISTORY_PATH
 
     def load_users(self):
         try:

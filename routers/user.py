@@ -4,11 +4,9 @@ from typing import List
 # from pydantic import BaseModel
 from lib.user_lib import UserList
 from models.models import PublicUser, UserCreate, User
-from lib.file_path import Path
 
 router = APIRouter(prefix="/user", tags=["User"])
 
-path = Path()
 user_list = UserList()
 
 @router.get(
