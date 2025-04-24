@@ -1,8 +1,7 @@
 from fastapi import APIRouter, Body
 from typing import List
-
-# from pydantic import BaseModel
 from lib.user_lib import UserList
+from lib.config_reset import reset_all
 from models.models import PublicUser, UserCreate, User
 
 router = APIRouter(prefix="/user", tags=["User"])
@@ -291,3 +290,22 @@ def delete_user(uid: str):
     - **404 Not Found**: User tidak ditemukan.
     """
     return user_list.delete_user(uid)
+
+@router.post(
+    "/reset",
+    summary="Mengembalikan settingan user ke settingan default",
+    responses={
+        200: {
+            "description": "Config berhasil direset",
+            "content": {
+                "application/json": {
+                    "example": {
+                        "message": "All user config and history have been reset"
+                    }
+                }
+            },
+        }
+    },
+)
+def reset_config():
+    return reset_all()

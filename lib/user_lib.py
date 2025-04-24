@@ -20,7 +20,7 @@ class UserList:
                 return data
 
         except (json.JSONDecodeError, FileNotFoundError, ValueError) as e:
-            print(f"[Error] Failed to load user: {e}")
+            print(f"[Error] Failed to load user from {self.user_path}: {e}")
             return []
 
     def save_user(self):
@@ -28,9 +28,10 @@ class UserList:
             with open(self.user_path, "w") as f:
                 json.dump(self.users, f, indent=4)
         except (PermissionError, TypeError, OSError, json.JSONDecodeError) as e:
-            print(f"[Error]: Gagal menyimpan user: {e}")
+            print(f"[Error]: Gagal menyimpan user di {self.user_path}: {e}")
 
     def get_all_user(self):
+        self.users = self.load_users()
         result = []
         for user in self.users:
             user_copy = user.copy()
@@ -40,6 +41,7 @@ class UserList:
         return result
 
     def get_public_user_info(self, uid):
+        self.users = self.load_users()
         for i, u in enumerate(self.users):
             if u["uid"] == uid:
                 user = self.users[i].copy()
@@ -49,6 +51,7 @@ class UserList:
         raise HTTPException(status_code=404, detail="User tidak ditemukan")
 
     def get_user_internal(self, uid):
+        self.users = self.load_users()
         for user in self.users:
             if user['uid'] == uid:
                 return user
