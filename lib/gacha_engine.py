@@ -6,21 +6,38 @@ from lib.banner_helper import BannerHelper
 from typing import List
 from fastapi import HTTPException
 import os
+import time
 
 class GachaSystem:
     def __init__(self):
         self.config_path = Path.CONFIG_PATH
+
         self.config = self.load_config()
         self.rate_up_choices = self.config["rate_up_choices"]
         self.rate_up_weights = self.config["rate_up_weight"]
         self.rarity_choices = self.config["rarity_choices"]
+        self.pity_modifiers = self.config["pity_modifiers"]
+        self.four_star_pity_modifiers = self.config["four_star_modifiers"]
+        self.reverse_pity_modifiers = self.config["reverse_pity_modifiers"]
+        self.reverse_four_star_modifiers = self.config["reverse_four_star_modifiers"]
+        self.rarity_status = self.config["rarity_status"]
+
         self.user_list = UserList()
         self.history_path = Path.HISTORY_PATH
         self.banner_helper = BannerHelper()
 
     def load_config(self):
-        with open(self.config_path, "r") as f:
-            return json.load(f)
+        with open(self.config_path, "r", encoding="utf-8") as file:
+            raw_config = json.load(file)
+
+        for table_key in ["pity_modifiers", "four_star_modifiers", "reverse_pity_modifiers", "reverse_four_star_modifiers"]:
+            raw_config[table_key] = {
+                int(k): v for k, v in raw_config[table_key].items()
+            }
+
+        raw_config["rarity_status"] = [tuple(pair) for pair in raw_config["rarity_status"]]
+
+        return raw_config
 
     def save_history(self, uid:str, history_entry: dict):
         history_file = os.path.join(self.history_path, f"{uid}.json")
@@ -32,34 +49,31 @@ class GachaSystem:
                     print(f"[Error] Failed to load user: {e}")
                     return []
         history.append(history_entry)
-        
+
         with open(history_file, "w") as f:
             json.dump(history, f, indent=4)
 
     def item_return(self, arr: list):
         return random.choice(arr)
 
+    def apply_modifiers(self, thresholds: dict, value: int, rarity_weight: dict):
+        for threshold in sorted(thresholds.keys(), reverse=True):
+            if value >= threshold:
+                for rarity, delta in thresholds[threshold].items():
+                    rarity_weight[rarity] += delta
+                break
+
     def reset_percentage(self, updated_4star: int, updated_5star: int, user:dict):
         rarity_weight = user["rarity_weight"]
         pity = user["pity"]
         four_star_pity = user["four_star_pity"]
-        
+
         if updated_5star == 0:
-            if pity >= 70:
-                rarity_weight["3-star"] += 13
-                rarity_weight["5-star"] -= 13
-            elif pity >= 50:
-                rarity_weight["3-star"] += 1
-                rarity_weight["5-star"] -= 1
+            self.apply_modifiers(self.reverse_pity_modifiers, pity, rarity_weight)
 
         if updated_4star == 0:
-            if four_star_pity >= 8:
-                rarity_weight["3-star"] += 30
-                rarity_weight["4-star"] -= 30
-            elif four_star_pity >= 5:
-                rarity_weight["3-star"] += 10
-                rarity_weight["4-star"] -= 10
-        
+            self.apply_modifiers(self.reverse_four_star_modifiers, four_star_pity, rarity_weight)
+
         if any(rarity_weight[star] < 0 for star in ["3-star", "4-star", "5-star"]):
             raise HTTPException(status_code=400, detail="rarity weight < 0")
 
@@ -70,21 +84,13 @@ class GachaSystem:
         four_star_pity = user["four_star_pity"]
         rarity_weights = user["rarity_weight"]
 
-        # 5 star pity
-        if pity == 70:
-            rarity_weights["3-star"] -= 12
-            rarity_weights["5-star"] += 12
-        elif pity == 50:
-            rarity_weights["3-star"] -= 1
-            rarity_weights["5-star"] += 1
+        if pity in self.pity_modifiers:
+            for rarity, delta in self.pity_modifiers[pity].items():
+                rarity_weights[rarity] += delta
 
-        # 4 star pity
-        if four_star_pity == 8:
-            rarity_weights["3-star"] -= 20
-            rarity_weights["4-star"] += 20
-        elif four_star_pity == 5:
-            rarity_weights["3-star"] -= 10
-            rarity_weights["4-star"] += 10
+        if four_star_pity in self.four_star_pity_modifiers:
+            for rarity, delta in self.four_star_pity_modifiers[four_star_pity].items():
+                rarity_weights[rarity] += delta
 
         self.user_list.save_user_rarity_weight(user["uid"], user["rarity_weight"])
 
@@ -95,12 +101,9 @@ class GachaSystem:
             if item["rarity"] in count:
                 count[item["rarity"]] += 1
 
-        if count["5-star"] >= 1:
-            return "emas"
-        elif count["4-star"] >= 1:
-            return "ungu"
-        else:
-            return "biru"
+        for rarity, status in self.rarity_status:
+            if count[rarity] >= 1:
+                return status
 
     # gacha system
     def gacha_system(self, rarity: str, user: dict, gacha_pool: dict):
@@ -186,6 +189,7 @@ class GachaSystem:
         return result
 
     def pull(self, type: str, uid: str, banner_id: str):
+        start = time.time()
         result = {
             "gacha_result": [],
             "current_pity": 0,
@@ -220,5 +224,7 @@ class GachaSystem:
         result["gacha_color"] = self.determine_status(result["gacha_result"])
 
         self.user_list.update_user_pity(user=user)
+        end = time.time()
+        print(f"Waktu eksekusi: {end - start:.4f} detik")
 
         return result

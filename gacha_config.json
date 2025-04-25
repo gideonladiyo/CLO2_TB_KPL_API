@@ -1,9 +1,69 @@
 {
+    "rate_up_choices": [
+        true,
+        false
+    ],
+    "rate_up_weight": [
+        50,
+        50
+    ],
     "rarity_choices": [
         "3-star",
         "4-star",
         "5-star"
     ],
-    "rate_up_choices": [true, false],
-    "rate_up_weight": [50, 50]
+    "pity_modifiers": {
+        "70": {
+            "3-star": -12,
+            "5-star": 12
+        },
+        "50": {
+            "3-star": -1,
+            "5-star": 1
+        }
+    },
+    "four_star_modifiers": {
+        "8": {
+            "3-star": -20,
+            "4-star": 20
+        },
+        "5": {
+            "3-star": -10,
+            "4-star": 10
+        }
+    },
+    "reverse_pity_modifiers": {
+        "70": {
+            "3-star": 13,
+            "5-star": -13
+        },
+        "50": {
+            "3-star": 1,
+            "5-star": -1
+        }
+    },
+    "reverse_four_star_modifiers": {
+        "8": {
+            "3-star": 30,
+            "4-star": -30
+        },
+        "5": {
+            "3-star": 10,
+            "4-star": -10
+        }
+    },
+    "rarity_status": [
+        [
+            "5-star",
+            "emas"
+        ],
+        [
+            "4-star",
+            "ungu"
+        ],
+        [
+            "3-star",
+            "biru"
+        ]
+    ]
 }
